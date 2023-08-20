@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+<!-- Bootstrap JS (Popper.js is also required) -->
+<script src="static/js/jquery-3.2.1.slim.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script>
+  // Initialize Bootstrap dropdowns
+  $(document).ready(function () {
+    $('.dropdown-toggle').dropdown();
+  });
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=date],input[type=number],textarea,dropdown-menu,dropdown-item,li,ul,select,input[type=checkbox]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+<!--button styling-->
+button {
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+<form action="register" method="post">
+   {% csrf_token %}
+  <div class="container">
+      <center>
+
+    <p>Please fill the details.</p>
+    <hr>
+      </center>
+
+
+    <input type="text" placeholder="Enter User Name" name="username">
+
+      <label><b>DOB</b></label>
+    <input type="date"  name="dob" >
+
+    <input type="number" placeholder="Enter your Age" name="age" >
+
+    <input type="number" placeholder="Enter phone number" name="pn" pattern="{10}">
+
+      <textarea  placeholder="Enter your address"></textarea>
+<!--Drop down for department-->
+ <li class="nav-item dromepdown {% if 'shopApp' in request.path %} active {% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Departments
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          {% for cat in links %}
+          <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.depName}}</a></li>
+          {% endfor %}
+
+          </ul>
+      </li>
+<!--Drop down for Courses-->
+<li class="nav-item dromepdown {% if cat.depName == 'links1' %} active {% endif %}">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      courses
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    {% if cat.depName == 'links1' %}
+      {% for cat1 in links1 %}
+      <li><a class="dropdown-item" href="{{ cat.get_url }}">{{ cat1.courseName }}</a></li>
+      {% endfor %}
+        {% endif %}
+    </ul>
+</li>
+<!--      Drop down for purpose-->
+      <label><b>Select your purpose</b></label>
+       <select id="fruitDropdown" name="select your Purpose" value="select">
+        <option value="Enquiry">Enquiry</option>
+        <option value="PlaceOrder">Place Order</option>
+        <option value="Return">Return</option>
+       </select>
+<!--check box-->
+<label><b>Material Provided</b></label><br>
+      <ul>
+      <label>Debit Notebook</label>
+      <input type="checkbox" id="" name="DebitNotebook" value="Debit Notebook">
+       <br>
+      <label> Pen</label>
+      <input type="checkbox" id="pen" name="pen" value="pen">
+       <br>
+      <label>Exam Paper</label>
+       <input type="checkbox" id="exampaper" name="exampaper" value="exampaper">
+</ul>
+
+
+<center>
+<button style="background-color: blue;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;"><a href="{% url 'schoolApp:confirm' %}">submit</a></button>
+<!--    <button class="button"><a href="{% url 'schoolApp:logoutf' %}"></a>Logout</button>-->
+    </center>
+  </div>
+</form>

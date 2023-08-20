@@ -1,0 +1,143 @@
+.body
+    {
+        font-family : 'Roboto',sans-serif;
+    }
+
+
+/***Navbar ***/
+
+.nav-item
+    {
+        letter-spacing: .2em;
+        font-size : 14 px;
+        text-transform : uppercase;
+    }
+.dropdown-item
+    {
+        letter-spacing : .2em;
+        font-size : 14px;
+        text-transform : uppercase;
+
+    }
+
+
+/** footer **/
+.my-footer
+{
+position:fixed-bottom;
+background-color:#f8f9fa;
+height:60px;
+}
+
+.my-footer p
+{
+padding-top:20px;
+font-size:14px;
+}
+
+
+ /*** category page ***/
+.my-row-class
+    {
+        padding-top:15px;
+    }
+
+.my-rows-class .mx-auto
+    {
+        color:#000;
+        font-size:12px;
+    }
+.my-image-padding
+    {
+        padding:5px;
+    }
+.my-image
+    {
+      width:100%;
+      height :auto;
+
+    }
+.my-title
+    {
+        font-size:16px;
+        text_transform:uppercase
+        letter_spacing:.2em;
+    }
+
+.my-bottom-margin
+    {
+    margin_bottom:10px;
+    }
+
+.card-body h4
+    {
+        font-size:14px;
+        text-transform:uppercase;
+        letter-spacing:.2em;
+
+    }
+
+/***  Product page ***/
+.my-prod-row-class
+    {
+        padding-top:15px;
+        padding-bottom:20px;`
+    }
+
+.my-prod-row-class .mx-auto
+    {
+        color:#000
+        font-size:12px;
+        text-decoration:none;
+    }
+
+.my-prod-title
+    {
+        font-size:16px;
+        text-transform: uppercase
+        letter_spacing: .2em;
+        padding-top:15px;
+        padding-bottom:10px;
+    }
+
+.my-pod-text
+    {
+        padding-right:20px;
+    }
+.my-search-text
+    {
+        padding-top:20px;
+    }
+
+/*** Cart Page ***/
+
+.my-custom-table
+    {
+        min-width:400px;
+        font-size:14px;
+    }
+
+.my-custom-thead
+    {
+        font-weight:normal;
+        text_transform:uppercase;
+        letter_spacing:.2em;
+        background-color:#f8f9fa!important;
+
+    }
+.custom_a
+    {
+        text-decoration:none;
+
+    }
+.custom_icon
+    {
+        text-decoration:none;
+        color:#86e96 !important;
+    }
+
+.my-custom-button
+    {
+        margin-top:5px;
+
+    }

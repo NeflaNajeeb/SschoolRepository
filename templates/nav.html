@@ -1,0 +1,70 @@
+
+<!-- Home page -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+<!--      {% if user.is_authenticated %}-->
+<!--      <li><a href="" style="text-align:right">Hello {{user.username}}</a></li>-->
+<!--         <li class="nav-item dropdown {% if 'schoolApp' in request.path %} active {% endif %}">-->
+<!--  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--    Departments-->
+<!--  </a>-->
+<!--  <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--    {% for cat in links %}-->
+<!--    <a class="dropdown-item" href="https://en.wikipedia.org/wiki/{{cat.d_slug}}">{{cat.depName}}</a>-->
+<!--    {% endfor %}-->
+<!--  </div>-->
+<!--</li>-->
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+        <a class="nav-link" style="color:#000080;font-family: Lucida Console, Courier New, monospace;" >Hello {{user.username}}</a>
+
+           <div class="navbar">
+    <a class="nav-link" href="{% url 'schoolApp:logout' %}" style="text-align: right;">Logout</a>
+        </div>
+      </li>
+      {% endif %}
+<!--         <li class="nav-item">-->
+<!--        <div class="navbar">-->
+<!--    <a class="nav-link" href="{% url 'schoolApp:logout' %}" style="text-align: right;">Logout</a>-->
+<!--        </div>-->
+<!--           <div></div>-->
+
+<!--      </li>-->
+<!--      {% else %}-->
+
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'schoolApp:login' %}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'schoolApp:register' %}">Register</a>
+      </li>
+<!--        {% endif %}-->
+
+      <li class="nav-item dropdown {% if 'schoolApp' in request.path %} active {% endif %}">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Departments
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    {% for cat in links %}
+    <a class="dropdown-item" href="https://en.wikipedia.org/wiki/{{cat.d_slug}}">{{cat.depName}}</a>
+    {% endfor %}
+  </div>
+</li>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="{%url 'schoolApp:logout' %}">Logout</a>-->
+<!--      </li>-->
+
+
+
+
+    </ul>
+  </div>
+</nav>
+
